@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+    {% block title %}
+        Home
+    {% endblock %}
+
+{% block main %}
+
+    <div class="search-box">
+      <div class="bg-white p-5 rounded shadow">
+        <h5>Find out the weather using the city name or zip code</h5>
+             <form autocomplete="off" action="/weatherbyname" method="POST">
+              <div class="row mb-4">
+                  <div class="form-group col-md-9">
+                    <input autocomplete="false" type="text" placeholder="Example: Cairo" class="form-control form-control-underlined" name="city">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+                  </div>
+              </div>
+            </form>
+            <form autocomplete="off" action="/weatherbyzip" method="POST">
+              <div class="row mb-4">
+                  <div class="form-group col-md-4">
+                    <input autocomplete="false" type="text" placeholder="Example: US" class="form-control form-control-underlined" name="country_code">
+                  </div>
+                  <div class="form-group col-md-5">
+                    <input autocomplete="false" type="text" placeholder="Example: 10001" class="form-control form-control-underlined" name="zip_code">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+                  </div>
+              </div>
+           </form>
+          <!-- check If city does not have a value or city is None -->
+          {% if city %}
+            <span>Quick access: <a href="/weather/{{ city }}">{{ city }}</a></span>
+          {% endif %}
+
+      </div>
+    </div>
+
+{% endblock %}

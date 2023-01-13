@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <title>Weather50: {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="{{url_for('static', filename='sun.png')}}" width="30" height="30" class="d-inline-block align-text-top">
+                    Whether 50
+                </a>
+                <a class="btn btn-primary" href="mailto:elfarouk1205@gmail.com" role="button">Contact</a>
+            </div>
+          </nav>
+          <main>
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+
+
+</html>
